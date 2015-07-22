@@ -1,0 +1,58 @@
+html{
+  height: 100%;
+}
+body{
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+section{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* 爱心 */
+.love{
+  width:80px;
+  height:70px;
+  position:absolute;
+}
+.love:before{
+  content:" ";
+  border: 0 solid transparent;
+  border-radius:100px 100px 0 0;
+  width:40px;
+  height:60px;
+  background:transparent;
+  -webkit-transform: rotate(-45deg);
+  position:absolute;
+  left:10px;
+}
+.love:after{
+  content:" ";
+  border: 0 solid transparent;
+  border-radius:100px 100px 0 0;
+  width:40px;
+  height:60px;
+  background:transparent;
+  -webkit-transform: rotate(45deg);
+  position:absolute;
+  left:25px;
+  top:0px;
+}
+
+.love-bg:before{
+  background:#ff0000;
+}
+.love-bg:after{
+  background:#ff0000;
+}
+.love-o:before{
+  border-top: 2px solid #ff0000;
+  border-left: 2px solid #ff0000;
+}
+.love-o:after{
+  border-top: 2px solid #ff0000;
+  border-right: 2px solid #ff0000;
+}
