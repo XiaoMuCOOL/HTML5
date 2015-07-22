@@ -8,6 +8,7 @@
 		<title>边栏过渡效果（Sidebar Transitions）</title>
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<script src="../Assets/jquery-2.1.4.min.js"></script>
 	</head>
 	<body>
 		<div id="st-container" class="st-container">
@@ -168,6 +169,7 @@
 
 				<div class="st-content">
 					<div class="st-content-inner">
+						<div class="btn">22</div>
 						<header class="codrops-header">
 							<h1>边栏过渡效果（Sidebar Transitions）</h1>
 						</header>
@@ -193,6 +195,13 @@
 				</div><!-- /st-content -->
 			</div><!-- /st-pusher -->
 		</div><!-- /st-container -->
+		<script type="text/javascript">
+			$(function(){
+				$(".btn").click(function(){
+					$("#st-container").addClass("st-effect-1 st-menu-open");
+				});
+			});
+		</script>
 		<script src="js/classie.js"></script>
 		<script src="js/sidebarEffects.js"></script>
 	</body>
