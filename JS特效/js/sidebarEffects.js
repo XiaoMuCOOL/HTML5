@@ -40,6 +40,7 @@
 					document.removeEventListener( eventtype, bodyClickFn );
 				}
 			};
+			document.addEventListener( eventtype, bodyClickFn );
 
 		buttons.forEach( function( el, i ) {
 			var effect = el.getAttribute( 'data-effect' );
@@ -52,7 +53,6 @@
 				setTimeout( function() {
 					classie.add( container, 'st-menu-open' );
 				}, 25 );
-				document.addEventListener( eventtype, bodyClickFn );
 			});
 		} );
 
