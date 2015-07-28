@@ -1,0 +1,109 @@
+<!doctype html> 
+<html> 
+<head> 
+  <meta charset="utf-8">
+  <title>三角形生成器</title>
+  <script src="../Assets/jquery-2.1.4.min.js"></script>
+  <script src="js/trianglify.min.js"></script>
+  <style type="text/css">
+    body{
+      padding: 0;
+      margin: 0;
+    }
+    header{
+      width: 100%;
+      height: 80px;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      background: black;
+      opacity: 0.7;
+      z-index: 99;
+    }
+    header h1{
+      color: white;
+      text-align: center;
+    }
+    footer{
+      width: 100%;
+      height: auto;
+      position: fixed;
+      top: auto;
+      bottom: 0;
+      background: black;
+      opacity: 0.7;
+      z-index: 99;
+    }
+    footer p{
+      margin: 10px 0;
+      color: white;
+      text-align: center;
+    }
+    section{
+      padding: 100px 0;
+      text-align: center;
+      z-index: 1;
+    }
+    .copy{
+      padding: 0;
+      margin: 0 20px 5px 0;
+      height: 14px;
+      font-size: 14px;
+      float: right;
+    }
+    .copy a{
+      color: red;
+    }
+    .home a{
+      font-size: 20px;
+      color: red;
+      text-decoration: none;
+    }
+  </style>
+  <style type="text/css">
+    #div{
+      
+    }
+  </style>
+  <script type="text/javascript">
+    $(function(){
+      var pattern = Trianglify({
+        height: window.innerHeight,
+        width: window.innerWidth,
+        x_colors: 'Spectral',
+        //y_colors: 'Blues',
+        cell_size: 130// + Math.random() * 100
+      });
+
+      $("section").css({
+        background:'url('+pattern.png()+')'
+      });
+      /*
+      // canvas
+      document.body.appendChild(pattern.canvas())
+
+      // svg  用svg
+      document.body.appendChild(pattern.svg())
+
+      // png
+      var png = document.createElement('img')
+      png.src = pattern.png()
+      document.body.appendChild(png)
+      */
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <h1>问题：三角形生成器</h1>
+  </header>
+  <section>
+    
+  </section>
+  <footer>
+    <p>结论：</p>
+    <p class="home"><a href="http://qrohlf.com/trianglify/#gettingstarted">trianglify官网</a></p>
+    <p class="copy"><a href="#" title="QQ:895355044">Powered by Gavin(小牧COOL)</a></p>
+  </footer>
+</body>
+</html>
