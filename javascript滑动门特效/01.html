@@ -4,14 +4,125 @@
   <meta charset="utf-8">
   <title>javascript滑动门特效</title>
   <link rel="stylesheet" href="css/style.css">
-  <script src="../Assets/jquery-2.1.4.min.js"></script>
+  <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+  <!--<script src="../Assets/jquery-2.1.4.min.js"></script>-->
   <script src="js/main.js"></script>
+  <style type="text/css">
+    body{
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      padding-top: 30px;
+      background: #444;
+    }
+    ul{
+      padding: 0;
+      margin: 0;
+    }
+    h1{
+      width: 100%;
+      text-align: center;
+      color: #48a770;
+    }
+    .box{
+      width: 600px;
+      height: 350px;
+      margin: 0 auto;
+      padding: 10px;
+      border:1px solid #ce5825;
+      background: #fbf0de;
+    }
+    .tag{
+      width: 80px;
+      height: 30px;
+      float: left;
+      margin-right: 10px;
+      list-style: none;
+      background: #dd7d4d;
+      text-align: center;
+      color: #fff;
+      line-height: 30px;
+    }
+    .tag.now{
+      background: #791b1b;
+    }
+    .tag-top{
+      display: inline-block;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #ce5825;
+    }
+    img{
+      width: 500px;
+      height: 310px;
+      float: left;
+    }
+    .tag-left{
+      float: left;
+      margin-left: 20px;
+    }
+    .tag-left .tag{
+      clear: both;
+      margin: 0;
+      margin-top: 10px;
+      width: 80px;
+    }
+  </style>
 </head>
 
 <body>
-  
+  <h1>天地君道培训 <small>-小牧老师</small></h1>
+  <div class="box">
+    <ul class="tag-top">
+      <li class="tag now">火影</li>
+      <li class="tag">海贼王</li>
+      <li class="tag">风景</li>
+    </ul>
+    <div class="cont">
+      <img src="img/1-1.jpg">
+      <ul class="tag-left">
+        <li class="tag now">1</li>
+        <li class="tag">2</li>
+        <li class="tag">3</li>
+      </ul>
+    </div>
+  </div>
 </body>
 
 <script type="text/javascript">
+$(function(){
+  var tagTop = 0;
+  var tagLeft = 0;
+  $(".tag-top li").each(function(index){
+    $(this).mouseenter(function(){
+      tagTop = index;
+      tagLeft = 0;
+      $(".tag-top .now").removeClass("now");
+      $(this).addClass("now");
+      $(".tag-left .now").removeClass("now");
+      $(".tag-left li").first().addClass("now");
+      $(".cont img").attr("src","img/"+tagTop+"-"+tagLeft+".jpg");
+    });
+  });
+
+  $(".tag-left li").each(function(index){
+    $(this).click(function(){
+      tagLeft = index;
+      $(".tag-left .now").removeClass("now");
+      $(this).addClass("now");
+      $(".cont img").attr("src","img/"+tagTop+"-"+tagLeft+".jpg");
+    });
+  });
+
+  //自动播放
+  setInterval(function(){
+    tagLeft = ++tagLeft > 2 ? 0 : tagLeft;
+    $(".tag-left .now").removeClass("now");
+    $(".tag-left li").eq(tagLeft).addClass("now");
+    $(".cont img").attr("src","img/"+tagTop+"-"+tagLeft+".jpg");
+  },3000);
+});
 </script>
 </html>
