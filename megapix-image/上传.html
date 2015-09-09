@@ -1,0 +1,98 @@
+<html>
+
+<body>
+
+<input type="file" capture="camera" id="cameraInput" name="cameraInput" style="position:absolute;width:32px;height:32px;opacity:0;filter:alpha(opacity:0);" />
+
+<button id="btnsend" onclick="sendImage()">上 传</button>
+
+<!--图片预览-->
+<div id="preview">
+    <canvas id="myCanvas"></canvas>
+    <div>
+        <label id="tip2"></label>
+    </div>
+</div>
+
+</body>
+
+<script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="index.js"></script>
+
+<script type="text/javascript" language="javascript">
+    var fileInput = document.getElementById('cameraInput');
+    fileInput.onchange = function () {
+        var file = fileInput.files[0];
+        var mpImg = new MegaPixImage(file);
+
+        var resCanvas1 = document.getElementById('myCanvas');
+        var _max = 320;
+        mpImg.render(resCanvas1, {
+            maxHeight: _max
+        });
+    };
+
+ 
+
+function sendImage() {
+    // 获取 canvas DOM 对象
+    var canvas = document.getElementById("myCanvas");
+    // 获取Base64编码后的图像数据，格式是字符串
+    // "data:image/png;base64,"开头,需要在客户端或者服务器端将其去掉，后面的部分可以直接写入文件。
+    var dataurl = canvas.toDataURL("image/jpg");
+    // 为安全 对URI进行编码
+    // data%3Aimage%2Fpng%3Bbase64%2C 开头
+    var imagedata = encodeURIComponent(dataurl);
+    //imagedata = imagedata.replace('data:image/png;base64,', '');
+    var url = "uploadImgWeixin.php";
+
+    // 因为是string，所以服务器需要对数据进行转码，写文件操作等。
+    // 个人约定，所有http参数名字全部小写
+    console.log(dataurl);
+    console.log(imagedata);
+    var data = {
+        imagedata: imagedata, _tm:(new Date()).getTime()
+    };
+    jQuery.ajax({
+        url: url,
+        data: data,
+        type: "POST",
+        // 期待的返回值类型
+        dataType: "json",
+        complete: function (xhr, result) {
+            var $tip2 = $("#tip2");
+            console.log(xhr.responseText);
+
+            if (!xhr) {
+                $tip2.text('网络连接失败!');
+                return false;
+            }
+
+            var text = xhr.responseText;
+            if (!text) {
+                $tip2.text('网络错误!');
+                return false;
+            }
+
+            var json = eval("(" + text + ")");
+            if (!json) {
+                $tip2.text('解析错误!');
+                return false;
+            } else {
+                if(json.status == 1){
+                    $tip2.addClass('green');
+
+　　　　　　　 alert('图片上传成功');
+                }else{
+                    $tip2.addClass('error');
+
+　　　　　　　alert('图片上传失败');
+                }
+                $tip2.text(json.msg);
+            }
+        },
+    });
+};
+</script>
+<a href="#" onclick="location.reload(true);">刷新</a>
+</html>

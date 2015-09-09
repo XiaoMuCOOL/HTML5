@@ -1,0 +1,140 @@
+<!doctype html> 
+<html> 
+<head> 
+  <meta charset="utf-8">
+  <title>javascript动态轮播图</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+  <!--<script src="../Assets/jquery-2.1.4.min.js"></script>-->
+  <script src="js/main.js"></script>
+  <style type="text/css">
+    body{
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      padding-top: 30px;
+      background: #444;
+    }
+    ul,li{
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    h1,h2{
+      width: 100%;
+      text-align: center;
+      color: #48a770;
+    }
+    h2{
+      font-size: 26px;
+    }
+    img{
+      max-width: 100%;
+      max-height: 100%;
+    }
+    .box{
+      position: relative;
+      max-width: 700px;
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .slide{
+      display: inline-block;
+      width: 400%;
+      height: auto;
+    }
+    .slide li{
+      width: 25%;
+      float: left;
+      height: auto;
+    }
+    .left,.right{
+      position: absolute;
+      width: 5%;
+      top: 42%;
+      left: 2%;
+    }
+    .right{
+      left: 93%;
+    }
+    .slide-icons{
+      position: absolute;
+      display: inline-block;
+      bottom: 3%;
+      width: 88px;
+      left: 50%;
+      margin-left: -44px;
+    }
+    .slide-icons li{
+      float: left;
+      margin: 0 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>天地君道培训 <small>- javascript动态轮播图</small></h1>
+  <h2>小牧老师 <small>- QQ:895355044</small></h2>
+  <div class="box">
+   
+    <ul class="slide">
+      <li><img src="img/1.jpg"></li>
+      <li><img src="img/2.jpg"></li>
+      <li><img src="img/3.jpg"></li>
+      <li><img src="img/4.jpg"></li>
+    </ul>
+
+    <a class="left" href="javascript:;"><img src="img/jt-left.png"></a>
+    <a class="right" href="javascript:;"><img src="img/jt-right.png"></a>
+    <ul class="slide-icons">
+      <li><img src="img/slide-icon2.png"></li>
+      <li><img src="img/slide-icon.png"></li>
+      <li><img src="img/slide-icon.png"></li>
+      <li><img src="img/slide-icon.png"></li>
+    </ul>
+  </div>
+</body>
+
+<script type="text/javascript">
+$(function(){
+  var now = 0;
+  function goToSlide(num){
+    $(".slide").animate({
+      marginLeft : (-100 * num) + "%"
+    },1000);
+    $(".slide-icons li img").attr("src","img/slide-icon.png").eq(num).attr("src","img/slide-icon2.png");
+  }
+  $(".left").click(function(){
+    --now;
+    if(now < 0){
+      now = 3;
+    }
+    goToSlide(now);
+  });
+  $(".right").click(function(){
+    ++now;
+    if(now > 3){
+      now = 0;
+    }
+    goToSlide(now);
+  });
+
+  $(".slide-icons li").each(function(index){
+    $(this).click(function(){
+      now = index;
+      goToSlide(index);
+    });
+  });
+
+  setInterval(function(){
+    ++now;
+    if(now > 3){
+      now = 0;
+    }
+    goToSlide(now);
+  },3000);
+});
+</script>
+</html>
