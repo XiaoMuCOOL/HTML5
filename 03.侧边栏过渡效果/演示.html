@@ -1,0 +1,237 @@
+<!doctype html> 
+<html> 
+<head> 
+  <meta charset="utf-8">
+  <title>侧边栏过渡效果-小牧</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+  <!--<script src="../Assets/jquery-2.1.4.min.js"></script>-->
+  <script src="js/main.js"></script>
+  <style type="text/css">
+    html,body{
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      background: #444;
+      overflow: hidden;
+    }
+    ul,li{
+      padding: 0;
+      margin: 0;
+      listyle: none;
+    }
+    h1,h2{
+      width: 100%;
+      text-align: center;
+      color: #48a770;
+    }
+    h1{
+      margin-top: 50px;
+    }
+    h2{
+      font-size: 26px;
+    }
+    img{
+      max-width: 100%;
+      max-height: 100%;
+    }
+    nav{
+      position: absolute;
+      width: 300px;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: #48a770;
+      visibility: hidden;
+      z-index: 99;
+      -webkit-transition: all 0.5s;
+      transition: all 0.5s;
+    }
+    nav h1{
+      text-align: left;
+      padding-left: 50px;
+      margin-top: 50px;
+      margin-bottom: 50px;
+      color: #275C3D;
+    }
+    nav li{
+      border-bottom: 1px solid #275C3D;
+      display: block;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      color: #fff;
+      padding-left: 30px;
+      text-align: left;
+    }
+    nav li:hover{
+      background: #275C3D;
+    }
+    nav li:first-child{
+      border-top: 1px solid #275C3D;
+    }
+    .cont{
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      background: #F3EFE0;
+      -webkit-transition: all 0.5s;
+      transition: all 0.5s;
+    }
+    .btns{
+      text-align: center;
+      margin:150px 0 0 0;
+    }
+    button{
+      width: 100px;
+      height: 35px;
+      background: #388a5a;
+      border: 0;
+      border-radius: 5px;
+      color: #fff;
+    }
+    button:hover{
+      background: #2c774b;
+    }
+    .mask{
+      display: none;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(0,0,0,0.6);
+    }
+    .now .mask{
+      display: block;
+    }
+
+    /* 效果1 */
+    .effect-0 nav{
+      visibility: visible;
+      -webkit-transform: translate(-100%, 0);
+      transform: translate(-100%, 0);
+    }
+    .now.effect-0 nav{
+      visibility: visible;
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0);
+    }
+    /* 效果2 */
+    .effect-1 .cont{
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0);
+      z-index: 50;
+    }
+    .effect-1 nav{
+      z-index: 1;
+    }
+    .now.effect-1 .cont{
+      -webkit-transform: translate(300px, 0);
+      transform: translate(300px, 0);
+    }
+    .now.effect-1 nav{
+      visibility: visible;
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0);
+    }
+    /* 效果3 */
+    .effect-2 {
+      -webkit-perspective: 1500px;
+      perspective: 1500px;
+    }
+    .now.effect-2 .cont{
+      -webkit-transform: translate3d(0, 0, -300px);
+      transform: translate3d(0, 0, -300px);
+    }
+    .effect-2 nav {
+      opacity: 1;
+      -webkit-transform: translate3d(-100%, 0, 0);
+      transform: translate3d(-100%, 0, 0);
+    }
+    .now.effect-2 nav {
+      visibility: visible;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+    /* 效果4 */
+    .effect-3{
+      -webkit-perspective: 1500px;
+      perspective: 1500px;
+    }
+    .now.effect-3 .cont {
+      -webkit-transform: translate3d(100px, 0, -600px) rotateY(-20deg);
+      transform: translate3d(100px, 0, -600px) rotateY(-20deg);
+    }
+    .effect-3 nav{
+      -webkit-transform: translate3d(-100%, 0, 0);
+      transform: translate3d(-100%, 0, 0);
+    }
+    .now.effect-3 nav{
+      visibility: visible;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+    /* 效果5 */
+    .effect-4{
+      -webkit-perspective: 1500px;
+      perspective: 1500px;
+    }
+    .now.effect-4 .cont {
+      -webkit-transform: rotateY(-10deg);
+      transform:rotateY(-10deg);
+      -webkit-transform-origin:100% 50%;
+      transform-origin:100% 50%;
+    }
+    .effect-4 nav{
+      -webkit-transform: translate3d(-100%, 0, 0);
+      transform: translate3d(-100%, 0, 0);
+    }
+    .now.effect-4 nav{
+      visibility: visible;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  </style>
+</head>
+
+<body class="effect-0">
+  <nav>
+    <h1>侧边栏</h1>
+    <ul>
+      <li>栏目1</li>
+      <li>栏目2</li>
+      <li>栏目3</li>
+      <li>栏目4</li>
+    </ul>
+  </nav>
+    
+  <section class="cont">
+    <h1>天地君道培训 <small>- 侧边栏过渡效果（Sidebar Transitions）</small></h1>
+    <h2>QQ交流群：433231447  <small>小牧老师-QQ:895355044</small></h2>
+    <div class="btns">
+      <button>效果一</button>
+      <button>效果二</button>
+      <button>效果三</button>
+      <button>效果四</button>
+      <button>效果五</button>
+    </div>
+    <div class="mask"></div>
+  </section>
+</body>
+
+<script type="text/javascript">
+$(function(){
+  $(".btns button").each(function(index){
+    $(this).click(function(){
+      $("body").removeClass().addClass("effect-"+index);
+      $("body").addClass("now");
+    });
+  });
+  $(".mask").click(function(){
+    $("body").removeClass("now");
+  });
+});
+</script>
+</html>
