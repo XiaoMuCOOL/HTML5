@@ -1,0 +1,114 @@
+<!doctype html> 
+<html> 
+<head> 
+  <meta charset="utf-8">
+  <title>JQuery换肤效果-小牧</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+  <!--<script src="../Assets/jquery-2.1.4.min.js"></script>-->
+  <script src="js/main.js"></script>
+  <style type="text/css">
+    html,body{
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      background: #444;
+      background-size: 100% 100%;
+      overflow: hidden;
+    }
+    ul,li{
+      padding: 0;
+      margin: 0;
+      listyle: none;
+    }
+    h1,h2{
+      width: 100%;
+      text-align: center;
+      color: #48a770;
+    }
+    h1{
+      margin-top: 50px;
+    }
+    h2{
+      font-size: 26px;
+    }
+    img{
+      max-width: 100%;
+      max-height: 100%;
+    }
+    nav{
+      display: inline-block;
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      background: rgba(0,0,0,0.5);
+      text-align: center;
+    }
+    nav a{
+      font-size: 18px;
+      color: #fff;
+    }
+    section{
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin-top: -100%;
+      background: rgba(255,255,255,0.9);
+      padding: 20px 100px;
+    }
+    section li{
+      margin: 10px 0;
+      list-style: none;
+      width: 180px;
+      height: 100px;
+      float: left;
+    }
+  </style>
+</head>
+
+<body class="effect-0">
+  <nav><a href="javascript:;">换肤</a></nav>
+  <h1>天地君道培训 <small>- javascript动态轮播图</small></h1>
+  <h2>QQ交流群：433231447  <small>小牧老师-QQ:895355044</small></h2>
+  <section class="jq-box">
+    <ul>
+      <li><img src="img/1.jpg"></li>
+      <li><img src="img/2.jpg"></li>
+      <li><img src="img/3.jpg"></li>
+      <li><img src="img/4.jpg"></li>
+      <li><img src="img/5.jpg"></li>
+      <li><img src="img/6.jpg"></li>
+      <li><img src="img/7.jpg"></li>
+      <li><img src="img/8.jpg"></li>
+      <li><img src="img/9.jpg"></li>
+      <li><img src="img/10.png"></li>
+    </ul>
+  </section>
+</body>
+
+<script type="text/javascript">
+$(function(){
+  $("nav a").click(function(){
+    $(".jq-box").animate({
+      marginTop : 0
+    },200);
+    //$("nav").hide();
+    return false;
+  });
+
+  $("body").click(function(){
+    $(".jq-box").animate({
+      marginTop : "-100%"
+    },1);
+    //$("nav").show();
+  });
+
+  $("li").click(function(){
+    var path = $(this).find("img").attr("src");
+    $("body").css({
+      backgroundImage : 'url('+path+')'
+    });
+  });
+});
+</script>
+</html>
