@@ -1,0 +1,165 @@
+<!doctype html> 
+<html> 
+<head> 
+  <meta charset="utf-8">
+  <title>CSS3 Transitions炫酷图片标题特效-小牧</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+  <!--<script src="../Assets/jquery-2.1.4.min.js"></script>-->
+  <script src="js/main.js"></script>
+  <style type="text/css">
+    html,body{
+      padding: 0;
+      margin: 0;
+      height: auto;
+      background: #fff;
+    }
+    h1,h2{
+      width: 100%;
+      text-align: center;
+      color: #fff;
+      background-color: steelblue;
+      margin: 0;
+    }
+    h1{
+      padding: 10px 0;
+    }
+    h2{
+      font-size: 20px;
+      padding-bottom: 20px;
+      margin-top: 0;
+      margin-bottom: 20px;
+      color: #c3c8cd;
+    }
+    section{
+      display: inline-block;
+      padding:50px;
+      padding-top: 0;
+    }
+    img{
+      max-width: 100%;
+      max-height: 100%;
+      position: relative;
+    }
+
+    figure{
+      width: 540px;
+      height: 405px;
+      background-color: steelblue;
+      position: relative;
+      float: left;
+    }
+    figcaption{
+      padding: 20px 0;
+      position: absolute;
+      bottom: 0;
+      display: block;
+      width: 100%;
+      z-index: 5;
+    }
+    h3,span{
+      color: #fff;
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+    h3{
+      font-size: 23px;
+      margin-bottom: 10px;
+    }
+
+    /* 效果一 */
+    .effect1 img{
+      transition: all 0.5s;
+      z-index: 15;
+    }
+    .effect1:hover img{
+      transform: translateY(-90px);
+    }
+
+    /* 效果二 */
+    .effect2 img{
+      backface-visibility: hidden;
+      transition: all 0.5s;
+      z-index: 15;
+    }
+    .effect2:hover img{
+      transform: rotateY(-180deg);
+    }
+    .effect2 figcaption{
+      width: 100%;
+      height: 60%;
+      backface-visibility: hidden;
+      transform: rotateY(-180deg);
+      transition: all 0.5s;
+    }
+    .effect2:hover figcaption{
+      transform: rotateY(0deg);
+    }
+
+    /* 效果三 */
+    .effect3 img{
+      transition: all 0.5s;
+      z-index: 15;
+    }
+    .effect3:hover img{
+      transform-origin: top left;
+      transform: scale(0.5);
+    }
+
+    /* 效果五 */
+    .effect4 img{
+      transition: all 0.5s;
+      z-index: 15;
+    }
+    .effect4:hover img{
+      transform: rotate(-360deg) scale(0);
+    }
+  </style>
+</head>
+
+<body>
+  <h1>天地君道培训 <small>- CSS3 Transitions炫酷图片标题特效</small></h1>
+  <h2>QQ交流群：433231447  <small>小牧老师-QQ:895355044</small></h2>
+  <section>
+    <figure class="effect1">
+      <figcaption>
+        <h3>Blubber Brothers</h3>
+        <span>天地君道培训-小牧老师</span>
+      </figcaption>
+      <img src="img/effect1.jpg">
+    </figure>
+
+    <figure class="effect2">
+      <figcaption>
+        <h3>Tits and Wieners</h3>
+        <span>天地君道培训-小牧老师</span>
+      </figcaption>
+      <img src="img/effect2.jpg">
+    </figure>
+
+    <figure class="effect3">
+      <figcaption>
+        <h3>Smashing!</h3>
+        <span>天地君道培训-小牧老师</span>
+      </figcaption>
+      <img src="img/effect3.jpg">
+    </figure>
+
+    <figure class="effect4">
+      <figcaption>
+        <h3>Allotment</h3>
+        <span>天地君道培训-小牧老师</span>
+      </figcaption>
+      <img src="img/effect4.jpg">
+    </figure>
+
+  </section>
+</body>
+
+<script type="text/javascript">
+$(function(){
+  
+});
+</script>
+</html>

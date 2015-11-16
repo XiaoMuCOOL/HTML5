@@ -1,0 +1,33 @@
+html,body{
+  padding: 0;
+  margin: 0;
+  height: auto;
+  background: #fff;
+}
+h1,h2{
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  background-color: steelblue;
+  margin: 0;
+}
+h1{
+  padding: 10px 0;
+}
+h2{
+  font-size: 20px;
+  padding-bottom: 20px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #c3c8cd;
+}
+section{
+  display: inline-block;
+  padding:50px;
+  padding-top: 0;
+}
+img{
+  max-width: 100%;
+  max-height: 100%;
+  position: relative;
+}
