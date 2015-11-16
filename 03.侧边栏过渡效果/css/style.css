@@ -25,3 +25,108 @@ img{
   max-width: 100%;
   max-height: 100%;
 }
+
+nav{
+  width: 300px;
+  height: 100%;
+  background: #48A770;
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  z-index: 99;
+  transition: all 0.5s;
+}
+nav h1{
+  color: #275C3D;
+  text-align: left;
+  padding-left: 50px;
+  margin-bottom: 50px;
+}
+nav li{
+  width: 250px;
+  height: 50px;
+  line-height: 50px;
+  color: #fff;
+  padding-left: 50px;
+  list-style: none;
+  border-bottom: 1px solid #275C3D;
+}
+nav li:first-child{
+  border-top: 1px solid #275C3D;
+}
+nav li:hover{
+  background: #275C3D;
+}
+
+section{
+  width: 100%;
+  height: 100%;
+  background: #F3EFE0;
+  transition: all 0.5s;
+}
+.btns{
+  width: 100%;
+  text-align: center;
+}
+button{
+  width: 100px;
+  height: 35px;
+  background: #388A5A;
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  margin-top: 250px;
+}
+.mask{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  z-index: 88;
+}
+.now .mask{
+  display: block;
+}
+
+.effect-0 nav{
+  visibility: visible;
+  transform: translate(-100%, 0);
+}
+.now.effect-0 nav{
+  visibility: visible;
+  transform: translate(0, 0);
+}
+
+.effect-1 nav{
+  visibility: visible;
+  transform: translate(-100%, 0);
+}
+.now.effect-1 nav{
+  visibility: visible;
+  transform: translate(0, 0);
+}
+.effect-1 section{
+  transform: translate(0, 0);
+}
+.now.effect-1 section{
+  transform: translate(300px, 0);
+}
+
+.effect-2 nav{
+  visibility: visible;
+  transform: translate(-100%, 0);
+}
+.now.effect-2 nav{
+  visibility: visible;
+  transform: translate(0, 0);
+}
+.effect-2{
+  perspective: 10px;
+}
+.now.effect-2 section{
+  transform: translate3d(100px, 0, -600px);
+}
