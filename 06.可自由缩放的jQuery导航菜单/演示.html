@@ -1,0 +1,97 @@
+<!doctype html> 
+<html> 
+<head> 
+  <meta charset="utf-8">
+  <title>可自由缩放的jQuery导航菜单-小牧</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+  <!--<script src="../Assets/jquery-2.1.4.min.js"></script>-->
+  <script src="js/main.js"></script>
+  <style type="text/css">
+    header{
+      background-color: #219ba1;
+      background-color: #C7C7C7;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+    nav{
+      display: block;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 10px 0;
+    }
+    .logo{
+      width: 200px;
+      height: 40px;
+    }
+    ul{
+      display: inline-block;
+      float: right;
+    }
+    li{
+      list-style: none;
+      float: left;
+      margin: 0 10px;
+    }
+    li a{
+      text-decoration: none;
+      color: #969696;
+      font-size: 16px;
+      line-height: 16px;
+      font-weight: 800;
+    }
+    .active a,a:hover{
+      color: #3d3d3d;
+    }
+    header,img,a{
+      transition: all 1s;
+    }
+    section{
+      height: 800px;
+      padding: 200px 0 500px 0;
+    }
+
+    .big nav{
+      padding: 20px 0;
+    }
+    .big img{
+      width: 400px;
+      height: 80px;
+    }
+    .big a{
+      line-height: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="big">
+    <nav>
+      <img class="logo" src="img/logo.png">
+      <ul>
+        <li class="active"><a href="#">首页</a></li>
+        <li><a href="#">秒答</a></li>
+        <li><a href="#">大神</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section>
+    <h1>天地君道培训 <small>- 可自由缩放的jQuery导航菜单</small></h1>
+    <h2>QQ交流群：433231447  <small>小牧老师-QQ:895355044</small></h2>
+  </section>
+</body>
+
+<script type="text/javascript">
+$(function(){
+  $(document).scroll(function(){
+    if($(document).scrollTop()>100){
+      $("header").removeClass("big");
+    }else{
+      $("header").addClass("big");
+    }
+  });
+});
+</script>
+</html>
