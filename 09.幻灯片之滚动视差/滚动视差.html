@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Parallax Slider - 视差滚动滑块</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+  <div id="pxs_container" class="pxs_container">
+    <div class="pxs_bg">
+      <div class="pxs_bg1"></div>
+      <div class="pxs_bg2"></div>
+      <div class="pxs_bg3"></div>
+    </div>
+    <div class="pxs_slider_wrapper">
+      <ul class="pxs_slider">
+        <li><img src="img/1.jpg"/></li>
+        <li><img src="img/2.jpg"/></li>
+        <li><img src="img/3.jpg"/></li>
+        <li><img src="img/4.jpg"/></li>
+        <li><img src="img/5.jpg"/></li>
+        <li><img src="img/3.jpg"/></li>
+      </ul>
+      <div class="pxs_navigation">
+        <span class="pxs_next"></span>
+        <span class="pxs_prev"></span>
+      </div>
+      <!-- <ul class="pxs_thumbnails">
+        <li><img src="img/thumbs/1.jpg"/></li>
+        <li><img src="img/thumbs/2.jpg"/></li>
+        <li><img src="img/thumbs/3.jpg"/></li>
+        <li><img src="img/thumbs/4.jpg"/></li>
+        <li><img src="img/thumbs/5.jpg"/></li>
+        <li><img src="img/thumbs/3.jpg"/></li>
+      </ul> -->
+    </div>
+  </div>
+  <script type="text/javascript">
+    $(function(){
+      function bgParallax(now){
+        $(".pxs_bg1").animate({
+          left:-170*now+"px"
+        },1000);
+        $(".pxs_bg2").animate({
+          left:-340*now+"px"
+        },1000);
+        $(".pxs_bg3").animate({
+          left:-680*now+"px"
+        },1000);
+        $(".pxs_slider").animate({
+          left:-1366*now+"px"
+        },1000);
+      }
+
+      var now = 0;
+      $(".pxs_next").click(function(){
+        ++now;
+        if(now>5)now=0;
+        bgParallax(now);
+      });
+      $(".pxs_prev").click(function(){
+        --now;
+        if(now<0)now=5;
+        bgParallax(now);
+      });
+    });
+  </script>
+</body>
+</html>
